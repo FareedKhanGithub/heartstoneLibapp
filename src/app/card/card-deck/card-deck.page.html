@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Card Decks
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <app-card-list *ngFor="let cardDeck of cardDecks"
+                    [items]= "cardDeck.types"
+                    [listName]="cardDeck.name"
+                    [navigateTo]="generateUrl">
+    </app-card-list>
+</ion-content>
+
+
+
+
+
+<!--
+    <ion-list>                   functions just like regular list in html     //and we are back
+        <ion-list-header>
+            <ion-label>Classes</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor= "let cardDeck of cardDecks">          does an ability that hsa ben defined already
+                                                            seems like an odd way to use a for loop in html it doesnt look let legit
+            <ion-avatar slot = "start">
+                <img [src] = "'assets/image/' + cardDeck + '.png'">             Write it as a directive,
+                       This is the requirments for the directives  'paths'   + list element +  'datatype'
+                                The above reminds me of some type of concantenation
+            </ion-avatar>
+
+
+        <ion-label>
+            <h2>{{cardDeck}}</h2>
+            <app-card-list> </app-card-list>
+        </ion-label>
+
+
+        </ion-item>
+    </ion-list>
+
+-->
+

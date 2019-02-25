@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{cardDeckGroup}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="cards.length > 0">
+    <ion-list-header>
+      <!-- <ion-label>{{card.name}}</ion-label>  -->                     <!-- this was supposedly a mistake -->
+    </ion-list-header>
+
+    <ion-item *ngFor= "let card of cards">
+      <ion-label>
+          <h2>{{card.name}}</h2>
+          <h3>{{card.cardSet}}</h3>
+          <app-card-list></app-card-list>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
