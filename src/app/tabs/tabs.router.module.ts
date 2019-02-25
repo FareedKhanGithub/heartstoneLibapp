@@ -25,27 +25,25 @@ const routes: Routes = [
         outlet: 'contact',
         component: ContactPage
       },
+
       {
-        path: 'card-deck',
+        path: 'card',
         outlet: 'card',
         component: CardDeckPage
       },
 
 
       {
-        path: 'card-listing',
+        path: 'card/:cardDeckGroup/:cardDeck',
         outlet: 'card',
         component: CardListingPage
       }
-
-
-
-
     ]
   },
+
   {
     path: '',                                  //rendering back to home page
-    redirectTo: '/tabs/(card:card-deck)',        //rendering the home page
+    redirectTo: '/tabs/(card:card)',        //rendering the home page
     pathMatch: 'full'
   }
 ];
