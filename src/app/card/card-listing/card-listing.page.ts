@@ -2,6 +2,10 @@ import { Component} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CardService } from '../shared/card.service';
 
+import { Card } from '../shared/card.model'
+
+
+
 
 @Component({
   selector: 'app-card-listing',
@@ -14,7 +18,7 @@ export class CardListingPage{
   cardDeckGroup: string;
   cardDeck: string;                         //this is the data type in which uses the name of the file you clicked
 
-  cards: any[] = [];
+  cards: Card[] = [];
 
 
   constructor(private route: ActivatedRoute,
@@ -30,9 +34,12 @@ export class CardListingPage{
 
     this.cardService.getCardsByDeck(this.cardDeckGroup, this.cardDeck).subscribe(
          //the subscribes helps with getting values in other card-deck files
-        (cards) => {
+        (cards: Card[]) => {
           this.cards = cards;
         })
 
       }
+
+
+
 }

@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';         //allow
 
 
 
-import { CardDeck } from './card.model';         //you want file from the same folder
+import { CardDeck, Card } from './card.model';         //you want file from the same folder
 
 
 
@@ -26,14 +26,14 @@ export class CardService{
 
         //then you copy the url and the api key but only the content, it seems that the strings before are added like getAllCardDecks():
 
-    private readonly HS_API_URL = 'https://omgvamp-hearthstone-v1.p.rapidapi.com';                  // used to be   //   /info there at end of url
-                                                                                                //he will be adding /info later in there
-                                                                                    //the guy has a slightly different url and he gave us this one
-    private readonly API_KEY = 'd49355c086mshf0aa7ab3ef46d3ap1d64c0jsn10bb41cdab99';
+    private readonly HS_API_URL = 'xxx';
+
+    private readonly API_KEY = 'xxx';
     private headers: HttpHeaders;
 
-
-
+                                                                                         // used to be   //   /info there at end of url
+                                                                                           //he will be adding /info later in there
+                                                                                    //the guy has a slightly different url and he gave us this one
 
 
 
@@ -47,12 +47,17 @@ export class CardService{
 
     public getAllCardDecks(): Observable<CardDeck[]>{           //thiis type overriding
         return this.http.get<CardDeck[]>(`${this.HS_API_URL}/info`, {headers: this.headers});  //needs to inject the early service
-                          //the < > means we want to get it back as CardDeck[]                                             //Mchole used backtik commas!!!!    ``
+                          //the < > means we want to get it back as CardDeck[]
     }
 
 
 
-    public getCardsByDeck(cardDeckGroup: string, cardDeck: string): Observable<any>{
-        return this.http.get<any>(`${this.HS_API_URL}/cards/${cardDeckGroup}/${cardDeck}`, {headers: this.headers});
+    public getCardsByDeck(cardDeckGroup: string, cardDeck: string): Observable<Card[]>{
+        return this.http.get<Card[]>(`${this.HS_API_URL}/cards/${cardDeckGroup}/${cardDeck}`, {headers: this.headers});
+    }
+
+    public getCardById(cardId: string): Observable<Card[]>{           //allows api access
+        return this.http.get<Card[]>(`${this.HS_API_URL}/cards/${cardId}`, {headers: this.headers});
+
     }
 }

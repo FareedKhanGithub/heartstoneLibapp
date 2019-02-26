@@ -10,6 +10,10 @@ import { ContactPage } from '../contact/contact.page';
 import { CardDeckPage } from '../card/card-deck/card-deck.page';
 import { CardListingPage } from '../card/card-listing/card-listing.page';
 
+import { CardDetailPage } from '../card/card-detail/card-detail.page';
+
+
+
 const routes: Routes = [
   {
     path: 'tabs',         //refering to tabs.page   //these children are loading pages
@@ -32,6 +36,11 @@ const routes: Routes = [
         component: CardDeckPage
       },
 
+      {
+        path: 'card/:cardId',
+        outlet: 'card',
+        component: CardDetailPage
+      },
 
       {
         path: 'card/:cardDeckGroup/:cardDeck',

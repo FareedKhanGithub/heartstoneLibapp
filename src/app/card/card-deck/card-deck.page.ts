@@ -46,7 +46,7 @@ export class CardDeckPage {
 
 
     generateUrl(cardDeckGroup: string, cardDeck: string): string {
-        return `/tabs/(card:card/${cardDeckGroup}/${cardDeck})`        //friggn string literals
+        return `/tabs/(card:card/${cardDeckGroup}/${cardDeck})`        // string literals
     }
 
 
