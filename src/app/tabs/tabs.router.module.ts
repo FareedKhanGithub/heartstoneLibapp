@@ -53,7 +53,7 @@ const routes: Routes = [
   {
     path: '',                                  //rendering back to home page
     redirectTo: '/tabs/(card:card)',        //rendering the home page
-    pathMatch: 'full'
+    pathMatch: 'full'                                   //must be eexact
   }
 ];
 

@@ -1,6 +1,11 @@
 <ion-list *ngIf="items.length > 0">
     <ion-list-header>
         <ion-label>{{listName}}</ion-label>
+               <!--{{}} are Angular expressions and come quite handy when you wish to write stuff to HTML-->
+               <!-- {} as we know stand for objects in JavaScript.-->
+
+
+
     </ion-list-header>
     <ion-item [href]="navigateTo(listName, item)" *ngFor= "let item of items">
         <ion-avatar slot = "start">

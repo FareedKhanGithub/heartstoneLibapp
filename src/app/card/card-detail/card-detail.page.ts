@@ -15,7 +15,7 @@ import {Card }from '../shared/card.model'
 
 export class CardDetailPage {
 
-    card: Card;                          //type card has things inside it
+    card: Card;                          //type card has things inside it, for you to recover from the card.service file.
 
 
   constructor(private route: ActivatedRoute,
@@ -26,7 +26,7 @@ export class CardDetailPage {
 
 
   ionViewWillEnter(){
-        const cardId = this.route.snapshot.paramMap.get('cardId');
+        const cardId = this.route.snapshot.paramMap.get('cardId');                     //route snapshot param Map
 
 
 

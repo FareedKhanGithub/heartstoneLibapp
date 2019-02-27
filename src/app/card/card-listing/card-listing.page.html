@@ -7,7 +7,7 @@
 <ion-content padding>
   <ion-list *ngIf="cards.length > 0">                                          <!-- probabaly here -->
       <ion-card *ngFor="let card of cards">
-          <ion-card-header text-wrap>
+          <ion-card-header text-wrap>                   <!-- will put a long list of text on multiple lines intead of just one line -->
             <ion-card-subtitle>
               {{card.cardSet}}
             </ion-card-subtitle>
@@ -18,8 +18,8 @@
           </ion-card-header>
           <ion-card-content>
               <div>{{card.text}}</div>
-              <ion-button [href]="'/tabs/(card:card/' + card.cardId + ')'" size='medium' expand='full'>
-                See Details
+              <ion-button [href]="'/tabs/(card:card/' + card.cardId + ')'" size='medium' expand='full'>      <!-- this will link to the single card-detail -->
+                See Details                             <!-- when clicking it will send you to tabs/card/ card.cardid which is the specific cardid -->
               </ion-button>
           </ion-card-content>
     </ion-card>

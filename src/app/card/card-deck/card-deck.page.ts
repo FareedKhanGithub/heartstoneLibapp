@@ -18,22 +18,23 @@ export class CardDeckPage {
     private readonly ALLOWED_DECKS = ['classes', 'factions', 'qualities', 'types', 'races'];
 
 
-    public cardDecks: CardDeck[] = [];        //list data data type
+    public cardDecks: CardDeck[] = [];        //list data data type   //empty array
 
 
-    constructor(private cardService: CardService) {
+    constructor(private cardService: CardService) {                //this will allow to have access to all of the cardservices services  (this is the api connection file)
         //debugger;      //will stop the compilation,see where the failure lies
-        this.getCardDecks();
+        this.getCardDecks();                 //the below function is actually contained inside here inorder to have access to the cardservice file (contains api connection file)
     }
 
 
 
     private getCardDecks(){         //one of the ways to get data from an observale is to subscribe to it
+                                          //observable is the data stream in which which we do request with server.
         this.cardService.getAllCardDecks().subscribe(
             //debugger;
             (cardDecks: CardDeck[]) => {
                 //debugger;
-                this.extractAllowedDecks(cardDecks)
+                this.extractAllowedDecks(cardDecks)       //this code this connects method below and then pushes it into Card.
                 //this.cardDecks = cardDecks})
             })
     }
@@ -41,13 +42,15 @@ export class CardDeckPage {
 
 
     extractAllowedDecks(cardDecks: CardDeck[]){
-        this.ALLOWED_DECKS.forEach((deckName: string) => this.cardDecks.push({name: deckName, types: cardDecks[deckName]}))
-    }
-
+        this.ALLOWED_DECKS.forEach((deckName: string) =>{this.cardDecks.push({name: deckName, types: cardDecks[deckName]})})
+    }                    //foreach deckName in ALLOWED_DECKS             //going to pushing deckname into cardDecks
+                             //name is the deckName = classes,faction, qualities,types, races.
+                             //cardDecks has many abilities that conatins the api connections
+                    //this pushes the information into lower level Cardlisting page
 
     generateUrl(cardDeckGroup: string, cardDeck: string): string {
         return `/tabs/(card:card/${cardDeckGroup}/${cardDeck})`        // string literals
-    }
+    }             //this method also pushes to the lower deck Cardlisting page.
 
 
 }

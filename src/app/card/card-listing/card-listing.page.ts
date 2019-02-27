@@ -33,7 +33,7 @@ export class CardListingPage{
     this.cardDeck = this.route.snapshot.paramMap.get('cardDeck');       //what does this.routesnapshot meaning
 
     this.cardService.getCardsByDeck(this.cardDeckGroup, this.cardDeck).subscribe(
-         //the subscribes helps with getting values in other card-deck files
+         //the subscribes helps with getting values in other card-deck files       //gets access to the observable  //which is the access to api.
         (cards: Card[]) => {
           this.cards = cards;
         })

@@ -1,15 +1,19 @@
 <ion-header>
         <ion-toolbar>
-          <ion-title>{{card?.name}}</ion-title>
-        </ion-toolbar>
+          <ion-title>{{card?.name}}</ion-title>          <!-- the ? is a safety machanism, so that program wont stop running aprt of this doesnt exist -->
+        </ion-toolbar>                                   <!--on the top bar of the app -->
       </ion-header>
 
-      <ion-content padding>
-          <div *ngIf="card && card.cardId">                                       <!-- "card && card.cardId"  -->
+
+
+
+    <ion-content padding>                                        <!-- the play area below for you to work with -->
+          <div *ngIf="card && card.cardId">                                       <!-- "card && card.cardId"  this is a boolean of these exist then proceed  -->
             <ion-card>
-                <ion-img [src]="card.img" (error)="updateImage($event)">                      <!--      (error)="updateImage($event)">     -->
+                <ion-img [src]="card.img" (error)="updateImage($event)">                      <!-- a place where to the image of the code -->
                 </ion-img>
                 <ion-card-content>
+
                     <ion-card-title>
                         {{card?.name}}
                     </ion-card-title>
@@ -20,7 +24,7 @@
                     <ion-card-title>
                         Stats
                     </ion-card-title>
-                    <p *ngIf="card.health"><b>Health: </b> {{card.health}}</p>
+                    <p *ngIf="card.health"><b>Health: </b> {{card.health}}</p>                   <!-- the ? is not here because you dont want it to display error there -->
                     <p *ngIf="card.attack"><b>Attack: </b> {{card.attack}}</p>
                     <p *ngIf="card.faction"><b>Faction: </b> {{card.faction}}</p>
                     <p *ngIf="card.rarity"><b>Rarity: </b> {{card.rarity}}</p>
